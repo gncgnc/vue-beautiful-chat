@@ -32,4 +32,4 @@ const Plugin = {
   }
 }
 
-export default Plugin
+Vue.use(Plugin)
