@@ -27,6 +27,10 @@
       @edit="editMessage"
       @remove="removeMessage"
     >
+      <template v-slot:header="slotProps" >
+        <div @click="slotProps.handleUserListToggle(showUserList); toggleUserList()"> Good chat between {{participants.map(m=>m.name).join(' & ')}} </div>
+      </template>
+
       <template v-slot:text-message-toolbox="scopedProps">
         <button v-if="!scopedProps.me && scopedProps.message.type==='text'" @click.prevent="like(scopedProps.message.id)">
           👍
@@ -115,6 +119,7 @@ import Header from './Header.vue'
 import Footer from './Footer.vue'
 import TestArea from './TestArea.vue'
 import availableColors from './colors'
+import UserListVue from '../../src/UserList.vue'
 
 export default {
   name: 'app',
@@ -137,7 +142,8 @@ export default {
       chosenColor: null,
       alwaysScrollToBottom: true,
       messageStyling: true,
-      userIsTyping: false
+      userIsTyping: false,
+      showUserList: false,
     }
   },
   created() {
@@ -208,6 +214,10 @@ export default {
       var msg = this.messageList[m];
       msg.liked = !msg.liked;
       this.$set(this.messageList, m, msg);
+    },
+    toggleUserList() {
+      console.log("toggle user list:", this.showUserList)
+      this.showUserList = !this.showUserList 
     }
   },
   computed: {

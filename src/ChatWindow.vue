@@ -10,7 +10,7 @@
       @userList="handleUserListToggle"
     >
       <template>
-        <slot name="header"> </slot>
+        <slot name="header" :handleUserListToggle="handleUserListToggle"> </slot>
       </template>
     </Header>
     <UserList v-if="showUserList" :colors="colors" :participants="participants" />

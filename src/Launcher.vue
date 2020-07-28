@@ -38,8 +38,8 @@
       @edit="$emit('edit', $event)"
       @remove="$emit('remove', $event)"
     >
-      <template v-slot:header>
-        <slot name="header"> </slot>
+      <template v-slot:header="slotProps">
+        <slot name="header" :handleUserListToggle="slotProps.handleUserListToggle" :showUserList="slotProps.showUserList"> </slot>
       </template>
       <template v-slot:user-avatar="scopedProps">
         <slot name="user-avatar" :user="scopedProps.user" :message="scopedProps.message"> </slot>

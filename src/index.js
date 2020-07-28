@@ -32,4 +32,5 @@ const Plugin = {
   }
 }
 
-Vue.use(Plugin)
+if (window.Vue) Vue.use(Plugin)
+export default Plugin
