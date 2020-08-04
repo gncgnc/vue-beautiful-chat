@@ -1,6 +1,6 @@
 <template>
   <div class="user-list" :style="{background: userListColor.userList.bg, paddingTop: '5px'}">
-    <div class="user-list--row" v-for="user in participants" :key="user.id">
+    <div class="user-list--row" v-for="user in participants" :key="user.id" @click.prevent="$emit('chat-clicked', user)">
       <img :src="user.imageUrl" class="img-msg" />
       <div class="user-element" :style="{color: userListColor.userList.text}">{{ user.name }}</div>
     </div>
