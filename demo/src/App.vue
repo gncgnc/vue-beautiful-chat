@@ -143,7 +143,7 @@ export default {
       alwaysScrollToBottom: true,
       messageStyling: true,
       userIsTyping: false,
-      showUserList: false,
+      showUserList: true,
     }
   },
   created() {
@@ -216,7 +216,6 @@ export default {
       this.$set(this.messageList, m, msg);
     },
     toggleUserList() {
-      console.log("toggle user list:", this.showUserList)
       this.showUserList = !this.showUserList 
     }
   },

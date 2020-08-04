@@ -151,7 +151,7 @@ export default {
   },
   data() {
     return {
-      showUserList: false
+      showUserList: true
     }
   },
   computed: {

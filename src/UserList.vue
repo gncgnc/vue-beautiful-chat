@@ -1,8 +1,8 @@
 <template>
-  <div class="user-list" :style="{background: userListColor.userList.bg}">
-    <table style="padding-top: 5px;">
+  <div class="user-list" :style="{background: userListColor.userList.bg, paddingTop: '5px'}">
+    <!-- <table style="padding-top: 5px;">
       <tbody>
-        <tr v-for="user in participants" :key="user.id">
+        <tr class="user-list--row" v-for="user in participants" :key="user.id">
           <td style="text-align: center;">
             <img :src="user.imageUrl" class="img-msg" />
           </td>
@@ -11,7 +11,11 @@
           </td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
+    <div class="user-list--row" v-for="user in participants" :key="user.id">
+      <img :src="user.imageUrl" class="img-msg" />
+      <div class="user-element" :style="{color: userListColor.userList.text}">{{ user.name }}</div>
+    </div>
   </div>
 </template>
 
@@ -56,5 +60,16 @@ export default {
 .user-element {
   font-size: 20px;
   vertical-align: middle;
+}
+
+.user-list--row {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.user-list--row:hover {
+  background: #eee;
 }
 </style>
