@@ -35,6 +35,7 @@
       :disable-user-list-toggle="disableUserListToggle"
       @scrollToTop="$emit('scrollToTop')"
       @onType="$emit('onType')"
+      @chatClicked="$emit('chatClicked', $event)"
       @edit="$emit('edit', $event)"
       @remove="$emit('remove', $event)"
     >

@@ -13,7 +13,7 @@
         <slot name="header" :handleUserListToggle="handleUserListToggle"> </slot>
       </template>
     </Header>
-    <UserList v-if="showUserList" :colors="colors" :participants="participants" />
+    <UserList v-if="showUserList" :colors="colors" :participants="participants" @chatClicked="$emit('chatClicked', $event)" />
     <MessageList
       v-if="!showUserList"
       :messages="messages"
