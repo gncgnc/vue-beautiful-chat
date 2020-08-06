@@ -7,7 +7,7 @@
       :on-close="onClose"
       :colors="colors"
       :disable-user-list-toggle="disableUserListToggle"
-      @userList="handleUserListToggle"
+      @userList="$emit('userList', $event)"
     >
       <template>
         <slot name="header" :handleUserListToggle="handleUserListToggle"> </slot>
@@ -76,6 +76,10 @@ export default {
     UserList
   },
   props: {
+    showUserList: {
+      type: Boolean,
+      default: false
+    },
     showEmoji: {
       type: Boolean,
       default: false
@@ -151,7 +155,7 @@ export default {
   },
   data() {
     return {
-      showUserList: true
+      // showUserList: true
     }
   },
   computed: {
@@ -163,7 +167,7 @@ export default {
   },
   methods: {
     handleUserListToggle(showUserList) {
-      this.showUserList = showUserList
+      // this.showUserList = showUserList
     },
     getSuggestions() {
       return this.messages.length > 0 ? this.messages[this.messages.length - 1].suggestions : []

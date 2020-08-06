@@ -33,6 +33,8 @@
       :always-scroll-to-bottom="alwaysScrollToBottom"
       :message-styling="messageStyling"
       :disable-user-list-toggle="disableUserListToggle"
+      :showUserList="showUserList"
+      @userList="$emit('userList', $event)"
       @scrollToTop="$emit('scrollToTop')"
       @onType="$emit('onType')"
       @chatClicked="$emit('chatClicked', $event)"
@@ -92,6 +94,11 @@ export default {
         }
       }
     },
+    showUserList: {
+      type: Boolean,
+      default: false
+    },
+
     showEmoji: {
       type: Boolean,
       default: false

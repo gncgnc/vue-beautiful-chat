@@ -23,12 +23,14 @@
       :showEdition="true"
       :showDeletion="true"
       :titleImageUrl="titleImageUrl"
+      :showUserList="showUserList"
+      @userList="toggleUserList"
       @onType="handleOnType"
       @edit="editMessage"
       @remove="removeMessage"
     >
       <template v-slot:header="slotProps" >
-        <div @click="slotProps.handleUserListToggle(showUserList); toggleUserList()"> Good chat between {{participants.map(m=>m.name).join(' & ')}} </div>
+        <div @click="toggleUserList()"> Good chat between {{participants.map(m=>m.name).join(' & ')}} </div>
       </template>
 
       <template v-slot:text-message-toolbox="scopedProps">

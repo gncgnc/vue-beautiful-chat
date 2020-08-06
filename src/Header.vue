@@ -18,6 +18,10 @@ import CloseIcon from './assets/close-icon-big.png'
 
 export default {
   props: {
+    showUserList: {
+      type: Boolean,
+      default: false
+    },
     icons: {
       type: Object,
       default: function () {
@@ -56,13 +60,13 @@ export default {
   },
   data() {
     return {
-      inUserList: false
+    //  inUserList: false
     }
   },
   methods: {
     toggleUserList() {
-      this.inUserList = !this.inUserList
-      this.$emit('userList', this.inUserList)
+      //this.inUserList = !this.inUserList
+      this.$emit('userList')
     }
   }
 }
