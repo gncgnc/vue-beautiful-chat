@@ -1,6 +1,11 @@
 <template>
   <div class="user-list" :style="{background: userListColor.userList.bg, paddingTop: '5px'}">
-    <div class="user-list--row" v-for="user in participants" :key="user.id" @click.prevent="$emit('chatClicked', user)">
+    <div
+      class="user-list--row"
+      v-for="user in participants"
+      :key="user.id"
+      @click.prevent="$emit('chat-clicked', user)"
+    >
       <img :src="user.imageUrl" class="img-msg" />
       <div class="user-element" :style="{color: userListColor.userList.text}">{{ user.name }}</div>
     </div>
@@ -39,6 +44,8 @@ export default {
   overflow: auto;
   padding-left: 5px;
   padding-top: 8px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .img-msg {
   border-radius: 50%;
@@ -54,10 +61,12 @@ export default {
   cursor: pointer;
   display: flex;
   align-items: center;
-  padding: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px;
 }
 
 .user-list--row:hover {
-  background: #eee;
+  background: rgb(68, 61, 61);
 }
 </style>
