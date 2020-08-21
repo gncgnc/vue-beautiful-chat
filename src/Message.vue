@@ -31,7 +31,6 @@
         @remove="$emit('remove')"
       >
         <template v-slot:default="scopedProps">
-          <div v-if="!scopedProps.me" class="sc-message--sender-name"> {{message.author}} </div>
           <slot
             name="text-message-body"
             :message="scopedProps.message"
