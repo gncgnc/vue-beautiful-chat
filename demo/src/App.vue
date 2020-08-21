@@ -85,6 +85,11 @@
         @click.prevent="setColor('dark')"
         href="#"
       >Dark</a>
+      <a
+        :style="{background: availableColors.dark.launcher.bg}"
+        @click.prevent="setColor('mine')"
+        href="#"
+      >Mine</a>
     </p>
     <v-dialog/>
     <p class="text-center messageStyling">

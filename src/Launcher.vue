@@ -7,10 +7,11 @@
       :style="{backgroundColor: colors.launcher.bg}"
       @click.prevent="isOpen ? close() : openAndFocus()"
     >
-      <div v-if="newMessagesCount > 0 && !isOpen" class="sc-new-messsages-count">
-        {{ newMessagesCount }}
-      </div>
-      <img v-if="isOpen" class="sc-closed-icon" :src="icons.close.img" :alt="icons.close.name" />
+      <div
+        v-if="newMessagesCount > 0 && !isOpen"
+        class="sc-new-messsages-count"
+      >{{ newMessagesCount }}</div>
+      <img v-if="isOpen" class="sc-closed-icon" :src="icons.close.img" :alt="icons.close.name" :style="{backgroundColor: '#12B783'}" />
       <img v-else class="sc-open-icon" :src="icons.open.img" :alt="icons.open.name" />
     </div>
     <ChatWindow
@@ -42,10 +43,14 @@
       @remove="$emit('remove', $event)"
     >
       <template v-slot:header="slotProps">
-        <slot name="header" :handleUserListToggle="slotProps.handleUserListToggle" :showUserList="slotProps.showUserList"> </slot>
+        <slot
+          name="header"
+          :handleUserListToggle="slotProps.handleUserListToggle"
+          :showUserList="slotProps.showUserList"
+        ></slot>
       </template>
       <template v-slot:user-avatar="scopedProps">
-        <slot name="user-avatar" :user="scopedProps.user" :message="scopedProps.message"> </slot>
+        <slot name="user-avatar" :user="scopedProps.user" :message="scopedProps.message"></slot>
       </template>
       <template v-slot:text-message-body="scopedProps">
         <slot
@@ -54,15 +59,13 @@
           :messageText="scopedProps.messageText"
           :messageColors="scopedProps.messageColors"
           :me="scopedProps.me"
-        >
-        </slot>
+        ></slot>
       </template>
       <template v-slot:system-message-body="scopedProps">
-        <slot name="system-message-body" :message="scopedProps.message"> </slot>
+        <slot name="system-message-body" :message="scopedProps.message"></slot>
       </template>
       <template v-slot:text-message-toolbox="scopedProps">
-        <slot name="text-message-toolbox" :message="scopedProps.message" :me="scopedProps.me">
-        </slot>
+        <slot name="text-message-toolbox" :message="scopedProps.message" :me="scopedProps.me"></slot>
       </template>
     </ChatWindow>
   </div>
@@ -72,7 +75,7 @@
 import ChatWindow from './ChatWindow.vue'
 
 import CloseIcon from './assets/close-icon.png'
-import OpenIcon from './assets/logo-no-bg.svg'
+import OpenIcon from './assets/openMine.svg'
 
 export default {
   components: {
@@ -189,27 +192,31 @@ export default {
       default: function () {
         return {
           header: {
-            bg: '#4e8cff',
+            bg: 'rgba(45, 49, 57, 0.8)',
             text: '#ffffff'
           },
           launcher: {
-            bg: '#4e8cff'
+            bg: 'rgba(45, 49, 57, 0.8)'
           },
           messageList: {
-            bg: '#ffffff'
+            bg: 'rgba(87, 99, 114, 0.8)'
           },
           sentMessage: {
-            bg: '#4e8cff',
+            bg: '#12B783',
             text: '#ffffff'
           },
           receivedMessage: {
-            bg: '#f4f7f9',
+            bg: 'rgba(87, 99, 114, 0.8)',
             text: '#ffffff'
           },
           userInput: {
-            bg: '#f4f7f9',
-            text: '#565867'
-          }
+            bg: '#30363F',
+            text: '#ffffff'
+          },
+          userList: {
+            bg: 'rgba(87, 99, 114, 0.8)',
+            text: '#ffffff'
+          },
         }
       }
     },
@@ -257,9 +264,9 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   position: fixed;
-  right: 25px;
-  bottom: 25px;
-  border-radius: 50%;
+  right: 32px;
+  bottom: 40px;
+  border-radius: 10px;
   box-shadow: none;
   transition: box-shadow 0.2s ease-in-out;
   cursor: pointer;
@@ -271,7 +278,7 @@ export default {
   display: block;
   width: 60px;
   height: 60px;
-  border-radius: 50%;
+  border-radius: 10px;
   transition: box-shadow 0.2s ease-in-out;
 }
 
@@ -280,8 +287,10 @@ export default {
   width: 60px;
   height: 60px;
   position: fixed;
-  right: 25px;
-  bottom: 25px;
+  right: 32px;
+  bottom: 40px;
+
+  border-radius: 10px;
   transition: opacity 100ms ease-in-out, transform 100ms ease-in-out;
 }
 
@@ -292,18 +301,18 @@ export default {
 }
 
 .sc-launcher .sc-open-icon {
-  padding: 20px;
+  padding: 8px;
   box-sizing: border-box;
   opacity: 1;
 }
 
 .sc-launcher.opened .sc-open-icon {
-  transform: rotate(-90deg);
+  /* transform: rotate(-90deg); */
   opacity: 1;
 }
 
 .sc-launcher.opened .sc-closed-icon {
-  transform: rotate(-90deg);
+  /* transform: rotate(-90deg); */
   opacity: 1;
 }
 

@@ -182,8 +182,8 @@ export default {
   height: calc(100% - 120px);
   max-height: 590px;
   position: fixed;
-  right: 25px;
-  bottom: 100px;
+  right: 109px;
+  bottom: 40px;
   box-sizing: border-box;
   box-shadow: 0px 7px 40px 2px rgba(148, 149, 150, 0.1);
   background: white;
@@ -191,10 +191,12 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   border-radius: 10px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Exo 2', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   animation: fadeIn;
   animation-duration: 0.3s;
   animation-timing-function: ease-in-out;
+
+  z-index: 100;
 }
 
 .sc-chat-window.closed {

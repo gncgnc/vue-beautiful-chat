@@ -110,6 +110,34 @@ export default {
       bg: '#2c3e50',
       text: '#ecf0f1'
     }
-  }
+  },  
+  mine: {
+    header: {
+        bg: 'rgba(45, 49, 57, 0.8)',
+        text: '#ffffff'
+    },
+    launcher: {
+        bg: 'rgba(45, 49, 57, 0.8)'
+    },
+    messageList: {
+        bg: 'rgba(87, 99, 114, 0.8)'
+    },
+    sentMessage: {
+        bg: '#12B783',
+        text: '#ffffff'
+    },
+    receivedMessage: {
+        bg: 'rgba(87, 99, 114, 0.8)',
+        text: '#ffffff'
+    },
+    userInput: {
+        bg: '#30363F',
+        text: '#ffffff'
+    },
+    userList: {
+        bg: 'rgba(87, 99, 114, 0.8)',
+        text: '#ffffff'
+    },
+},
 }
 

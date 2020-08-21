@@ -4,7 +4,7 @@
       class="user-list--row"
       v-for="user in participants"
       :key="user.id"
-      @click.prevent="$emit('chat-clicked', user)"
+      @click.prevent="$emit('chatClicked', user)"
     >
       <img :src="user.imageUrl" class="img-msg" />
       <div class="user-element" :style="{color: userListColor.userList.text}">{{ user.name }}</div>
@@ -44,8 +44,8 @@ export default {
   overflow: auto;
   padding-left: 5px;
   padding-top: 8px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 11px;
+  border-bottom-right-radius: 11px;
 }
 .img-msg {
   border-radius: 50%;

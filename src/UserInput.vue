@@ -179,6 +179,7 @@ export default {
       this.file = null
     },
     setInputActive(onoff) {
+      this.$root.$emit(onoff ? "chatInputFocus" : "chatInputBlur");
       this.inputActive = onoff
     },
     handleKey(event) {
@@ -278,7 +279,8 @@ export default {
       )
     },
     _handleFileSubmit(file) {
-      this.file = file
+      // Disable file sending 
+      // this.file = file
     },
     _editFinish() {
       this.store.editMessage = null
