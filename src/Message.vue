@@ -20,6 +20,7 @@
         ></div>
       </slot>
 
+
       <TextMessage
         v-if="message.type === 'text'"
         :message="message"
@@ -30,6 +31,7 @@
         @remove="$emit('remove')"
       >
         <template v-slot:default="scopedProps">
+          <div v-if="!scopedProps.me" class="sc-message--sender-name"> {{message.author}} </div>
           <slot
             name="text-message-body"
             :message="scopedProps.message"
@@ -349,5 +351,11 @@ export default {
       border-color: $color;
     }
   }
+}
+
+.sc-message--sender-name {
+  font-weight: bold;
+  margin-top: 7px;
+  margin-bottom: -7px;
 }
 </style>
